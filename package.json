@@ -1,0 +1,27 @@
+{
+  "name": "desinax-typographic-grid",
+  "version": "1.0.0",
+  "description": "LESS typographic grid",
+  "main": "null",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/desinax/typographic-grid.git"
+  },
+  "keywords": [
+    "LESS",
+    "grid",
+    "typography",
+    "typographic grid",
+    "horizontal grid",
+    "baseline grid"
+  ],
+  "author": "Mikael Roos",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/desinax/typographic-grid/issues"
+  },
+  "homepage": "https://github.com/desinax/typographic-grid#readme"
+}
