@@ -1,10 +1,10 @@
 {
-  "name": "desinax-typographic-grid",
-  "version": "1.0.0",
-  "description": "LESS typographic grid",
+  "name": "@desinax/typographic-grid",
+  "version": "1.0.1",
+  "description": "LESS/SASS typographic grid",
   "main": "null",
   "scripts": {
-    "test": "test"
+    "test": "make test"
   },
   "repository": {
     "type": "git",
@@ -23,5 +23,13 @@
   "bugs": {
     "url": "https://github.com/desinax/typographic-grid/issues"
   },
-  "homepage": "https://github.com/desinax/typographic-grid#readme"
+  "homepage": "https://github.com/desinax/typographic-grid#readme",
+  "devDependencies": {
+    "clean-css": "^4.1.11",
+    "css-styleguide": "^0.9.6",
+    "eslint": "^4.19.1",
+    "less": "^2.7.1",
+    "less-plugin-clean-css": "^1.5.1",
+    "stylelint": "^9.2.0"
+  }
 }

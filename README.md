@@ -15,12 +15,12 @@ Install
 You can install using npm.
 
 ```text
-npm install desinax-typographic-grid
+npm install @desinax/typographic-grid
 ```
 
 
 
 ```
  . 
-..:  Copyright (c) 2016-2017 Mikael Roos, mos@dbwebb.se 
+..:  Copyright (c) 2016-2018 Mikael Roos, mos@dbwebb.se 
 ```
