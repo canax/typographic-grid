@@ -39,4 +39,4 @@ jobs:
 notify:
   webhooks:
     # A list of hook hashes, containing the url field
-    - url: https://webhooks.gitter.im/e/8977802b1da1b9573179
+    - url: https://webhooks.gitter.im/e/d1956a70a81b99766971
