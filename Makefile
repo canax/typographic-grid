@@ -81,6 +81,7 @@ STYLELINT = node_modules/.bin/stylelint
 # Path to source and build libs
 BUILD = build
 BUILD_LESS = $(BUILD)/less
+HTDOCS = htdocs/css
 SRC_LESS   = src/less
 
 # LESS files and their built respectives.
@@ -191,6 +192,7 @@ styleguide-update:
 # target: less                    - Compile the LESS stylesheet(s).
 less: prepare less-css less-min-css
 	@$(call HELPTEXT,$@)
+	rsync -a --delete $(BUILD_LESS)/css/ $(HTDOCS)/less/
 
 less-css: $(LESS_CSS)
 less-min-css: $(LESS_MIN_CSS)
