@@ -1,6 +1,6 @@
 {
   "name": "@desinax/typographic-grid",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Desinax LESS/SASS module for typographic grid",
   "main": "null",
   "scripts": {
