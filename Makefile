@@ -1,6 +1,6 @@
 #!/usr/bin/env make
 #
-# A Desinax Theme.
+# A Desinax Theme Module.
 # See organisation on GitHub: https://github.com/desinax
 
 # ------------------------------------------------------------------------
@@ -78,20 +78,22 @@ tag-prepare:
 LESSC     = node_modules/.bin/lessc
 STYLELINT = node_modules/.bin/stylelint
 
-LESS_INCLUDE_PATH = src/less
+# Path to source and build libs
+BUILD = build
+BUILD_LESS = $(BUILD)/less
+SRC_LESS   = src/less
 
-# Find sources
-JSON_SOURCES 	:= $(wildcard *.json) $(wildcard .*.json)
-CSS_SOURCES 	:= $(wildcard build/*.css)
-LESS_SOURCES 	:= $(wildcard src/less/*.less)
-SASS_SOURCES 	:= $(wildcard src/sass/*.sass)
-JS_SOURCES 		:= $(wildcard src/js/*.js)
+# LESS files and their built respectives.
+LESS_SOURCES = $(wildcard $(SRC_LESS)/*.less)
+LESS_CSS = $(LESS_SOURCES:$(SRC_LESS)/%.less=$(BUILD_LESS)/css/%.css)
+LESS_MIN_CSS = $(LESS_SOURCES:$(SRC_LESS)/%.less=$(BUILD_LESS)/css/%.min.css)
+LESS_LINT 	 = $(LESS_SOURCES:$(SRC_LESS)/%.less=$(BUILD_LESS)/lint/%.less)
 
-LESS_BUILD		:= $(LESS_SOURCES:src/less/%.less=build/less/%.css)
-LESS_MIN_BUILD	:= $(LESS_SOURCES:src/less/%.less=build/less/%.min.css)
 
-LESS_LINT_BUILD	:= $(LESS_SOURCES:src/less/%.less=build/less-lint/%.lesslint)
-LESS_CSS_LINT_BUILD	:= $(LESS_BUILD:build/less/%.css=build/less-lint/%.csslint)
+# JSON_SOURCES 	:= $(wildcard *.json) $(wildcard .*.json)
+# CSS_SOURCES 	:= $(wildcard build/*.css)
+# SASS_SOURCES 	:= $(wildcard src/sass/*.sass)
+# JS_SOURCES 	:= $(wildcard src/js/*.js)
 
 
 
@@ -99,18 +101,18 @@ LESS_CSS_LINT_BUILD	:= $(LESS_BUILD:build/less/%.css=build/less-lint/%.csslint)
 #
 # Basic rules.
 #
-# target: prepare                 - Empty and prepare the build directory.
+# target: prepare                 - Prepare the build directory.
 .PHONY: prepare
 prepare: 
 	@$(call HELPTEXT,$@)
-	rm -rf build/*
-	install -d build/less build/less-lint build/css build/lint
+	@[ -d $(BUILD_LESS)/css ] || install -d $(BUILD_LESS)/css
+	@[ -d $(BUILD_LESS)/lint ] || install -d $(BUILD_LESS)/lint
 
 
 
 # target: build                   - Build the stylesheets.
 .PHONY: build
-build: prepare less lint
+build: prepare less
 	@$(call HELPTEXT,$@)
 
 
@@ -119,7 +121,7 @@ build: prepare less lint
 .PHONY: clean
 clean: 
 	@$(call HELPTEXT,$@)
-	rm -rf build
+	rm -rf $(BUILD)
 
 
 
@@ -150,14 +152,14 @@ check:
 
 # target: update                  - Update codebase.
 .PHONY: update
-update: npm-update
+update: npm-update styleguide-update
 	@$(call HELPTEXT,$@)
 
 
 
 # target: upgrade                 - Upgrade codebase.
 .PHONY: upgrade
-upgrade: styleguide-install
+upgrade: npm-upgrade styleguide-update
 	@$(call HELPTEXT,$@)
 
 
@@ -173,11 +175,11 @@ test: less-lint
 #
 # Validation according to CSS-styleguide.
 #
-# target: styleguide-install      - Install styleguide validation files.
-.PHONY: styleguide-install
-styleguide-install:
+# target: styleguide-update       - Update styleguide validation files.
+.PHONY: styleguide-update
+styleguide-update:
 	@$(call HELPTEXT,$@)
-	rsync -av node_modules/css-styleguide/.stylelintrc.json .
+	rsync -av node_modules/@desinax/css-styleguide/.stylelintrc.json .
 
 
 
@@ -187,33 +189,53 @@ styleguide-install:
 # LESS.
 #
 # target: less                    - Compile the LESS stylesheet(s).
-.PHONY: less
-less: prepare $(LESS_BUILD) $(LESS_MIN_BUILD)
+less: prepare less-css less-min-css
 	@$(call HELPTEXT,$@)
 
-build/less/%.css: src/less/%.less
-	@$(call ACTION_MESSAGE, $< -> $@)
-	$(LESSC) --include-path=$(LESS_INCLUDE_PATH) --source-map $< $@
+less-css: $(LESS_CSS)
+less-min-css: $(LESS_MIN_CSS)
+less-lint: $(LESS_LINT)
 
-build/less/%.min.css: src/less/%.less
-	@$(call ACTION_MESSAGE, $< -> $@)
-	$(LESSC) --include-path=$(LESS_INCLUDE_PATH) --source-map --clean-css $< $@
+$(BUILD_LESS)/css/%.css: $(SRC_LESS)/%.less
+	@$(call ACTION_MESSAGE,$< -> $@)
+	$(LESSC) --include-path=$(SRC_LESS) $< $@
+
+$(BUILD_LESS)/css/%.min.css: $(SRC_LESS)/%.less
+	@$(call ACTION_MESSAGE,$< -> $@)
+	$(LESSC) --include-path=$(SRC_LESS) --clean-css $< $@
+
+$(BUILD_LESS)/lint/%.less: $(SRC_LESS)/%.less
+	@$(call ACTION_MESSAGE,$< -> $@)
+	$(LESSC) --include-path=$(SRC_LESS) --lint $< $@
 
 
 
-# target: less-lint               - Lint the LESS stylesheet(s).
-.PHONY: less-lint
-less-lint: less $(LESS_LINT_BUILD) $(LESS_CSS_LINT_BUILD)
+# ------------------------------------------------------------------------
+#
+# SCSS.
+#
+
+
+
+# ------------------------------------------------------------------------
+#
+# CSS.
+# @TODO Clean up this rule, is it active?
+#
+# target: lint-css                - Lint the CSS stylesheet(s).
+.PHONY: lint-css
+lint-css: less
 	@$(call HELPTEXT,$@)
+	$(LESSC) --include-path=$(SRC_LESS) --lint $(SRC_LESS) > build/lint/style.less
+	- $(ESLINT) build/css/style.css > build/lint/style.css
+	ls -l build/lint/
 
-build/less-lint/%.lesslint: src/less/%.less
-	@$(call ACTION_MESSAGE, $< -> $@)
-	$(LESSC) --include-path=$(LESS_INCLUDE_PATH) --lint $< > $@ 
-	$(STYLELINT) $< > $@.stylelint
 
-build/less-lint/%.csslint: build/less/%.css
-	@$(call ACTION_MESSAGE, $< -> $@)
-	- $(STYLELINT) $@ > $@
+
+# ------------------------------------------------------------------------
+#
+# JS.
+#
 
 
 
@@ -234,6 +256,14 @@ npm-install:
 npm-update: 
 	@$(call HELPTEXT,$@)
 	npm update
+
+
+
+# target: npm-upgrade             - Upgrade npm using package.json.
+.PHONY: npm-upgrade
+npm-upgrade: 
+	@$(call HELPTEXT,$@)
+	npm upgrade
 
 
 
