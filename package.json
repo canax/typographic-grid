@@ -25,11 +25,11 @@
   },
   "homepage": "https://github.com/desinax/typographic-grid#readme",
   "devDependencies": {
-    "clean-css": "^4.1.11",
+    "clean-css": "^4.2.1",
     "css-styleguide": "^0.9.6",
     "eslint": "^4.19.1",
     "less": "^2.7.1",
     "less-plugin-clean-css": "^1.5.1",
-    "stylelint": "^9.2.0"
+    "stylelint": "^9.6.0"
   }
 }

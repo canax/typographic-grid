@@ -1,0 +1,361 @@
+/**
+  * Import the parts making up the typographic grid.
+  */
+/**
+ * Typographic font families to choose from.
+ */
+/**
+ * Typographic defaults.
+ */
+/* 16px - 100%/1.5 */
+#desinax-hgrid {
+  /**
+     * Mixins used when setting default fonts
+     */
+  /**
+     * Settings for headings H1-H6
+     */
+  /**
+     * Text elements
+     */
+  /**
+     * Display source code.
+     */
+  /**
+     * Lists
+     */
+  /**
+     * Tables. Because of the need for padding on TH and TD, the vertical rhythm
+     * on table cells has to be 1.5*@magic-number.
+     */
+  /**
+     * More typography elements
+     */
+  /**
+     * Enable all default typographic elements.
+     */
+}
+/**
+ * Magic number and base fontsize forms the basis for the hgrid.
+ *  22px / 16px, line-height 1.375
+ *  24px / 16px, line-height 1.5
+ */
+.column-b h1,
+.column-b h2,
+.column-b h3,
+.column-b h4,
+.column-b h5,
+.column-b h6 {
+  font-family: Cambria, Georgia, Times, 'Times New Roman', serif;
+  margin-top: 22px;
+  margin-bottom: 22px;
+}
+.column-b h1 img,
+.column-b h2 img,
+.column-b h3 img,
+.column-b h4 img,
+.column-b h5 img,
+.column-b h6 img {
+  margin: 0;
+}
+.column-b h1 {
+  font-size: 2.375em;
+  line-height: 1.15789474;
+  font-weight: normal;
+  border-bottom: 1px solid #666;
+  margin-bottom: 21px;
+}
+.column-b h1 ~ h1,
+.column-b h1 ~ h2,
+.column-b h1 ~ h3,
+.column-b h1 ~ h4,
+.column-b h1 ~ h5,
+.column-b h1 ~ h6 {
+  margin-top: 44px;
+}
+.column-b h1 + h2 {
+  margin-top: 22px;
+}
+.column-b h2 {
+  font-size: 1.875em;
+  line-height: 1.46666667;
+  font-weight: normal;
+  margin-top: 44px;
+  margin-bottom: 21px;
+  border-bottom: 1px solid #CCC;
+}
+.column-b h2 + h3 {
+  margin-top: 22px;
+}
+.column-b h3 {
+  font-size: 1.375em;
+  line-height: 1;
+  font-weight: normal;
+  margin-top: 44px;
+  margin-bottom: 21px;
+  border-bottom: 1px solid #EEE;
+}
+.column-b h4 {
+  font-size: 1.25em;
+  line-height: 1.1;
+  font-weight: normal;
+}
+.column-b h5 {
+  font-size: 1em;
+  line-height: 1.375;
+}
+.column-b h6 {
+  font-size: 0.875em;
+  line-height: 1.57142857;
+}
+.column-b p {
+  margin-top: 22px;
+  margin-bottom: 22px;
+}
+.column-b small,
+.column-b .small,
+.column-b .smaller {
+  font-size: 0.875em;
+}
+.column-b strong,
+.column-b b {
+  font-weight: bold;
+}
+.column-b mark {
+  color: #000;
+  background-color: #ff9;
+}
+.column-b abbr[title],
+.column-b dfn[title] {
+  text-decoration: dotted underline;
+}
+.column-b em,
+.column-b i,
+.column-b dfn {
+  font-style: italic;
+}
+.column-b sub,
+.column-b sup {
+  font-size: 0.75em;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+.column-b sup {
+  top: -0.5em;
+}
+.column-b sub {
+  bottom: -0.25em;
+}
+.column-b blockquote {
+  border-left: 4px solid #eee;
+  padding-left: 1em;
+  margin-left: 0;
+  margin-bottom: 22px;
+}
+.column-b pre,
+.column-b code,
+.column-b kbd,
+.column-b samp,
+.column-b .code {
+  font-size: 1.25em;
+  font-family: monospace;
+}
+.column-b code,
+.column-b samp {
+  border: 1px solid #ccc;
+}
+.column-b code {
+  background-color: #eee;
+}
+.column-b pre,
+.column-b div.code,
+.column-b pre code {
+  font-size: 1.25em;
+  line-height: 1.6;
+  white-space: pre;
+}
+.column-b pre {
+  margin-top: 22px;
+  margin-bottom: 22px;
+}
+.column-b pre code {
+  display: block;
+  overflow: auto;
+}
+.column-b div.code,
+.column-b pre code {
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  margin-top: 21px;
+  margin-bottom: 21px;
+  padding-top: 11px;
+  padding-bottom: 11px;
+  padding-left: 0.5em;
+  background-color: #eee;
+}
+.column-b ul,
+.column-b ol {
+  margin-top: 22px;
+  margin-bottom: 22px;
+  padding-left: 1.5em;
+}
+.column-b ul p,
+.column-b ol p {
+  margin-top: 11px;
+  margin-bottom: 11px;
+}
+.column-b ul ul,
+.column-b ol ul,
+.column-b ul ol,
+.column-b ol ol {
+  margin: 0;
+}
+.column-b ul {
+  list-style-type: disc;
+}
+.column-b ol {
+  list-style-type: decimal;
+}
+.column-b dl {
+  margin-top: 22px;
+  margin-bottom: 22px;
+}
+.column-b dl.horizontal dt {
+  clear: left;
+  float: left;
+  width: 7em;
+}
+.column-b dl.horizontal dd {
+  margin-left: 8em;
+  display: block;
+}
+.column-b dd {
+  margin-left: 1.5em;
+}
+.column-b article table,
+.column-b .table,
+.column-b .table1,
+.column-b .table2 {
+  margin-top: 22px;
+  margin-bottom: 22px;
+}
+.column-b table.full-width,
+.column-b article .table,
+.column-b .table,
+.column-b .table2 {
+  width: 100%;
+}
+.column-b article table,
+.column-b .table,
+.column-b .table2 {
+  border-collapse: collapse;
+  /*
+            tfoot {
+            }
+            */
+}
+.column-b article table caption,
+.column-b .table caption,
+.column-b .table2 caption {
+  font-size: 0.875em;
+  line-height: 1.57142857;
+  text-align: left;
+  font-style: italic;
+}
+.column-b article table thead,
+.column-b .table thead,
+.column-b .table2 thead {
+  box-shadow: 0 1px 0 #aaa;
+}
+.column-b article table th,
+.column-b .table th,
+.column-b .table2 th {
+  vertical-align: bottom;
+  font-weight: bold;
+  text-align: left;
+}
+.column-b article table th,
+.column-b .table th,
+.column-b .table2 th,
+.column-b article table td,
+.column-b .table td,
+.column-b .table2 td {
+  padding: 5.5px;
+}
+.column-b article table tr,
+.column-b .table tr,
+.column-b .table2 tr {
+  box-shadow: 0 1px 0 #ccc;
+}
+.column-b article table tr:hover,
+.column-b .table tr:hover,
+.column-b .table2 tr:hover {
+  color: #000;
+  background-color: #f6f6f6;
+  box-shadow: 0 1px 0 #666;
+}
+.column-b table.striped tbody tr:nth-child(even) td,
+.column-b table.striped tbody tr.even td {
+  background-color: #fafafa;
+}
+.column-b hr {
+  position: relative;
+  top: -2px;
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+  margin-top: 32px;
+  margin-bottom: 33px;
+}
+.column-b hr::after {
+  content: "§";
+  position: relative;
+  top: -0.7em;
+  left: 50%;
+  padding: 0 0.25em;
+  background-color: #fff;
+}
+body .column-b {
+  font: 16px/1.375 Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+* {
+  box-sizing: border-box;
+}
+.wrap {
+  margin: 0 auto;
+  max-width: 1300px;
+  margin-bottom: 40px;
+  background-color: #ccffdd;
+  padding: 1em;
+  border: 1px solid #66ff99;
+  overflow: auto;
+}
+.row {
+  background-color: #66ff99;
+  padding-top: 0.5em;
+}
+.column,
+.column-a,
+.column-b {
+  width: 50%;
+  float: left;
+  background-color: #eee;
+  color: #333;
+  padding: 0 1em;
+  border-left: 1px solid #66ff99;
+}
+.column {
+  margin-bottom: 1em;
+  background-color: #ccffdd;
+}
+.column-a,
+.column-b {
+  background-image: url("../../img/magic-number-22.png");
+}
+@media (max-width: 1200px) {
+  .wrap {
+    margin-left: 8px;
+    margin-right: 8px;
+  }
+}

@@ -1,0 +1,88 @@
+ /**
+  * Import the parts making up the typographic grid.
+  */
+@import "src/less/typography-font-families.less";
+//@import "src/less/typography-sizes.less";
+//@import "src/less/typography-mixins.less";
+@import "src/less/typography-defaults.less";
+
+// Set font family to use
+@fontFamilyHeadings:  @fontFamilyCambria;
+@fontFamilyBody:      @fontFamilyCalibri;
+@fontFamilyCode:      @fontFamilyCourier;
+
+/**
+ * Magic number and base fontsize forms the basis for the hgrid.
+ *  22px / 16px, line-height 1.375
+ *  24px / 16px, line-height 1.5
+ */
+@magicNumber:  22px;
+@fontSizeBody: 16px;
+
+// Affects all basic typographic elements
+.column-b {
+    #desinax-hgrid.activateDefaultTypography();
+}
+
+body {
+    .column-b {
+        #desinax-hgrid.font(@fontSizeBody);
+    }
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.wrap {
+    margin: 0 auto;
+    max-width: 1300px;
+    margin-bottom: 40px;
+    background-color: #ccffdd;
+    padding: 1em;
+    border: 1px solid #66ff99;
+    overflow: auto;
+}
+
+.row {
+    //.row();
+    //margin-bottom: 10px;
+    background-color: #66ff99;
+    padding-top: 0.5em;
+    //padding-bottom: 1em;
+}
+
+.column,
+.column-a,
+.column-b {
+    width: 50%;
+    float: left;
+    background-color: #eee;
+    color: #333;
+    padding: 0 1em;
+    border-left: 1px solid #66ff99;
+}
+
+.column {
+    margin-bottom: 1em;
+    background-color: #ccffdd;
+}
+
+.column-a,
+.column-b {
+    @mn: unit(@magicNumber);
+    background-image: url("../../img/magic-number-@{mn}.png");
+}
+
+// html.hgrid .inner-wrap {
+//     @gridImage: "../img/theme/magic-number-@{mn}.png";
+//     #desinax-hgrid.showGrid(@gridImage);
+// }
+
+// Make it responsive using media queries
+@media (max-width: 1200px) {
+    .wrap {
+        margin-left: 8px;
+        margin-right: 8px;
+    }
+}

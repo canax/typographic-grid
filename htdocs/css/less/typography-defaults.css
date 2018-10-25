@@ -1,9 +1,13 @@
 /**
  * Typographic defaults.
  */
+/* 16px - 100%/1.5 */
 #desinax-hgrid {
   /**
-     * Headings
+     * Mixins used when setting default fonts
+     */
+  /**
+     * Settings for headings H1-H6
      */
   /**
      * Text elements

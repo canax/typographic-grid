@@ -1,11 +1,11 @@
 /**
- * Typographic sizes for horisontal rythm.
+ * Typographic sizes to create vertical rythm using a magic number as base.
  */
 /**
- * Magic number for vertical rythm
- * @magicNumber = @fontSizeBody * @lineHeight
+ * These are the basis for calculating the rytm.
+ *   @lineHeight: (unit(@magicNumber) / unit(@fontSizeBody));
+ *   @magicNumber = @fontSizeBody * @lineHeight
  */
-/* 16px - 100%/1.5 */
 /**
  * Size and lineheight calculation for magicNumber 24
  *
