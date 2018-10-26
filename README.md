@@ -20,10 +20,10 @@ Table of content
 
 * [Documentation online](#documentation-online)
 * [Install](#install)
-* [About typography.less](#about-typography-less)
+* [About typography.less](#about-typographyless)
 * [Customizing the grid](#customizing-the-grid)
 * [Modify more](#modify-more)
-* [About typography-font-families.less](#about-typography-font-families-less)
+* [About typography-font-families.less](#about-typography-font-familiesless)
 * [License](#license)
 
 
@@ -98,7 +98,7 @@ Now you are done. An example showing how this can look like is in [`htdocs/typog
 
 This is how the example looks like.
 
-![Defaults](doc/img/defaults.png)
+![Defaults](doc/img/default.png)
 
 
 
