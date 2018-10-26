@@ -1,7 +1,4 @@
 /**
- * Typographic sizes to create vertical rythm using a magic number as base.
- */
-/**
  * These are the basis for calculating the rytm.
  *   @lineHeight: (unit(@magicNumber) / unit(@fontSizeBody));
  *   @magicNumber = @fontSizeBody * @lineHeight
