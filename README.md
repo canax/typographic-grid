@@ -167,7 +167,7 @@ In your own theme style you can then set the font families to use in the grid.
 @fontFamilyCode:      @fontFamilyCourier;
 ```
 
-The variables `@fontFamilyHeadings`, `@fontFamilyBody` and `@fontFamilyCode` are defined, together with a large set of other variables that can be customized, in the file [`src/less/typography-font-families.less`](src/less/typography-font-families.less).
+The variables `@fontFamilyHeadings`, `@fontFamilyBody` and `@fontFamilyCode` are defined, together with a large set of other variables that can be customized, in the file [`src/less/typography-defaults.less`](src/less/typography-defaults.less).
 
 
 
