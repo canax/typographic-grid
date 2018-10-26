@@ -20,7 +20,7 @@ Table of content
 
 * [Documentation online](#documentation-online)
 * [Install](#install)
-* [About typography.less](#about-typographyless)
+* [About the grid](#about-the-grid)
 * [Customizing the grid](#customizing-the-grid)
 * [Modify more](#modify-more)
 * [About typography-font-families.less](#about-typography-font-familiesless)
@@ -53,8 +53,10 @@ Or clone this repo and use it as is.
 
 
 
-About typography.less
+About the grid
 -------------------------------
+
+The grid consists of two less-files, [`src/less/typography-font-families.less`](src/less/typography-font-families.less) and [`src/less/typography-defaults.less`](src/less/typography-defaults.less).
 
 This is how you can import and activate the grid into your own theme.
 
