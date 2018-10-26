@@ -20,18 +20,10 @@ Table of content
 
 * [Documentation online](#documentation-online)
 * [Install](#install)
-* [About grid.less](#about-gridless)
-* [Configure grid.less](#configure-gridless)
-* [Using grid.less](#using-gridless)
-    * [Prepare with HTML](#prepare-with-html)
-    * [Style the row](#style-the-row)
-    * [Style the columns](#style-the-columns)
-    * [Grid wrapper](#grid-wrapper)
-    * [Responsive grid](#responsive-grid)
-    * [Show the grid](#show-the-grid)
-    * [Avoid styling the grid row or grid column](#avoid-styling-the-grid-row-or-grid-column)
-* [More examples on usage](#more-examples-on-usage)
-* [History](#history)
+* [About typography.less](#about-typography-less)
+* [Customizing the grid](#customizing-the-grid)
+* [Modify more](#modify-more)
+* [About typography-font-families.less](#about-typography-font-families-less)
 * [License](#license)
 
 
