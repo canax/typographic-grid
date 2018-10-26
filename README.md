@@ -41,8 +41,8 @@ Documentation online
 
 You can read this README and try out the example files `htdocs/*.html` by using GitHub Pages.
 
-* [GitHub Pages README](https://desinax.github.io/typografic-grid/).
-* [GitHub Pages examples in htdocs/](https://desinax.github.io/typografic-grid/htdocs).
+* [GitHub Pages README](https://desinax.github.io/typographic-grid/).
+* [GitHub Pages examples in htdocs/](https://desinax.github.io/typographic-grid/htdocs).
 
 Viewing this documentation on GitHub Pages makes it easier to both read this documentation and try out the examples on the same time.
 
@@ -64,7 +64,7 @@ Or clone this repo and use it as is.
 About typography.less
 -------------------------------
 
-The quick way to import all parts of the typographic grid is to import the file [`typography.less`](src/less/typography.less), like this.
+This is how you can import and activate the grid into your own theme.
 
 ```less
 /**
@@ -102,7 +102,7 @@ The next step is to optionally enable the to show the grid. This is helpful when
 }
 ```
 
-Now you are done. An example showing how this can look like is in `htdocs/typographic_default.html`. The style used for the example is in `src/less/test_typography_default.less`.
+Now you are done. An example showing how this can look like is in [`htdocs/typographic_default.html`](htdocs/typographic_default.html). The style used for the example is in [`src/less/test_typography_default.less`](src/less/test_typography_default.less).
 
 This is how the example looks like.
 
@@ -110,48 +110,48 @@ This is how the example looks like.
 
 
 
-Activate the grid
+Customizing the grid
 -------------------------------
 
+The idea behind the grid is to select a magic number which all typography should align vertically to.
 
-// Magic number and base fontsize
-@magicNumber:  24px;  // 22px
-@fontSizeBody: 16px;
+You can also set the base for the fontsize used.
 
-
-
-Show the grid
--------------------------------
-
-// Magic number and base fontsize
-@magicNumber:  24px;  // 22px
-@fontSizeBody: 16px;
-
-
-
-Show the grid
--------------------------------
-
-The first thing you can do is to activate the grid.
+There are defaults which you can override.
 
 ```less
-// Show the grid
-.hgrid .wrap {
-    @gridImage: "../../img/magic-number-@{magicNumber}.png";
-    #desinax-hgrid.showGrid(@gridImage);
-}
+// Magic number and base fontsize
+@magicNumber:  24px;  // 22px
+@fontSizeBody: 16px;
 ```
 
-There are two grid images avail grid images available resides in [`src/img`](src/img). There is one image for a 22px grid and one for a 24px grid. The size of the grid is also called a _magic number_.
+You can review the example in [`htdocs/typographic_custom_24.html`](htdocs/typographic_custom_24.html) which show a slightly modified grid using fontsize 16px and a magic number of 24px. The style used for the example is in [`src/less/test_typography_custom_24.less`](src/less/test_typography_custom_24.less).
+
+It looks like this.
+
+![Custom 24](doc/img/custom_24.png)
+
+There is another example with the magic number set to 22px. You can review it in [`htdocs/typographic_custom_22.html`](htdocs/typographic_custom_22.html). The style used for the example is in [`src/less/test_typography_custom_22.less`](src/less/test_typography_custom_22.less).
+
+It looks like this.
+
+![Custom 22](doc/img/custom_22.png)
+
+
+
+Modify more
+-------------------------------
+
+The basic typography for the grid is in the file [`src/less/typography-defaults.less`](src/less/typography-defaults.less). It contains mixins that activate the grid, it contains basic settings for common typographic elements and it contains a set of variables that can be customized by you in your own theme.
 
 
 
 About typography-font-families.less
 -------------------------------
 
-This file contains a set of font families stored in variables. It also contains a selection of default font families to use for headers, body and code. You can review the file in [`src/less/typography-font-families.less`](src/less/typography-font-families.less).
+This file contains a set of font families stored in variables. You can review the file in [`src/less/typography-font-families.less`](src/less/typography-font-families.less).
 
-The file contains some definitions of common font families, like this.
+Here is an extract from the file. You can use these variables when you customize what font families to use.
 
 ```less
 // Monospace
@@ -164,66 +164,16 @@ The file contains some definitions of common font families, like this.
 @fontFamilyVerdana:         Verdana, Geneva, sans-serif;
 ```
 
-If we only look at this file we could import it like this and add our own configurations of the default fonts.
+In your own theme style you can then set the font families to use in the grid.
 
 ```less
-/**
- * Import the parts making up the typographic grid.
- */
-@import "src/less/typography-font-families.less";
-
 // Set font family to use
 @fontFamilyHeadings:  @fontFamilyCambria;
 @fontFamilyBody:      @fontFamilyCalibri;
 @fontFamilyCode:      @fontFamilyCourier;
 ```
 
-
-
-About typography-sizes.less
--------------------------------
-
-This file contains he calculations of the font size to use for various elements. You can review the file in [`src/less/typography-sizes.less`](src/less/typography-sizes.less).
-
-If we just look at the content of the file we see variables with som appearingly random sizes. But it so much more to it, than meets the eye.
-
-Lets look at the content of the file.
-
-```less
-/**
- * Typographic sizes to create vertical rythm using a magic number as base.
- */
-@magicNumber:    24px; /* 16px - 100%/1.5 */
-//@magicNumber:    22px; /* 16px - 100%/1.375 */
-@fontSizeBody:   16px;
-@lineHeightBase: ( unit(@magicNumber) / unit(@fontSizeBody) );
-
-// font size headers
-@fontSizeH1: 2.375em;
-@fontSizeH2: 1.875em;
-@fontSizeH3: 1.375em;
-@fontSizeH4: 1.25em;
-@fontSizeH5: 1em;
-@fontSizeH6: 0.875em;
-
-// fontsize code blocks
-@fontSizeCodeInline:  1.25em;
-@fontSizeCodeBlock:   1.25em;
-@lineHeightCodeBlock: 1.6;
-
-// fontsize super and subscripts
-@fontSizeSupSub: 0.75em;
-
-// fontsize smaller
-@fontSizeSmall: 0.875em;
-```
-
-The magic number `@magicNumber` is set to 24px. The standard fontsize is set to `16px`. The line-height is then calculated (24/16) to be 1.5 for this setup.
-
-The idea is that all fonts should have a fontsize and a line-height that fits in a multiple of the magic number. So, this is true for the above setup since fontsize x line-height is 24 (16*1.5).
-
-
-
+The variables `@fontFamilyHeadings`, `@fontFamilyBody` and `@fontFamilyCode` are defined, together with a large set of other variables that can be customized, in the file [`src/less/typography-font-families.less`](src/less/typography-font-families.less).
 
 
 
