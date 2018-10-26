@@ -5,16 +5,13 @@
  * Typographic font families to choose from.
  */
 /**
- * Default font-families
+ * Typographic sizes to create vertical rythm using a magic number as base.
  */
 /**
- * Typographic sizes for horisontal rythm.
+ * These are the basis for calculating the rytm.
+ *   @lineHeight: (unit(@magicNumber) / unit(@fontSizeBody));
+ *   @magicNumber = @fontSizeBody * @lineHeight
  */
-/**
- * Magic number for vertical rythm
- * @magicNumber = @fontSizeBody * @lineHeight
- */
-/* 16px - 100%/1.5 */
 /**
  * Size and lineheight calculation for magicNumber 24
  *
@@ -69,7 +66,10 @@
  */
 #desinax-hgrid {
   /**
-     * Headings
+     * Mixins used when setting default fonts
+     */
+  /**
+     * Settings for headings H1-H6
      */
   /**
      * Text elements

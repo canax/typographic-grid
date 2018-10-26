@@ -1,4 +1,10 @@
 /**
+ * This is the default grid style activated, without any own settings.
+ */
+/**
+ * Typographic font families to choose from.
+ */
+/**
  * Typographic defaults.
  */
 #desinax-hgrid {
@@ -27,4 +33,26 @@
   /**
      * Enable all default typographic elements.
      */
+}
+.hgrid .wrap {
+  background-image: url("../../img/magic-number-24px.png");
+}
+.meta {
+  position: absolute;
+  top: 0;
+  color: #666;
+  z-index: -1;
+}
+.magic-number::after {
+  content: "24px";
+}
+.base-fontsize::after {
+  content: "16px";
+}
+html {
+  background-color: #ccffdd;
+}
+.wrap {
+  margin: 0 auto;
+  max-width: 800px;
 }

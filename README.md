@@ -7,7 +7,9 @@ Desinax Typographic Grid (LESS)
 [![Build Status](https://travis-ci.org/desinax/typographic-grid.svg?branch=master)](https://travis-ci.org/desinax/typographic-grid)
 [![CircleCI](https://circleci.com/gh/desinax/typographic-grid.svg?style=svg)](https://circleci.com/gh/desinax/typographic-grid)
 
-LESS module implementing a typographic grid. This is also knows as a horizontal grid, a baseline grid, used to create vertical rythm in a layout.
+LESS module implementing a typographic grid. This is also knows as a horizontal grid, a baseline grid. These types of grid are used to create vertical rythm for the typography in a layout.
+
+It can look like this when applying the typgraphy to a vertical grid.
 
 ![With showgrid](doc/img/showgrid.png)
 
@@ -68,24 +70,79 @@ The quick way to import all parts of the typographic grid is to import the file 
 /**
  * Import the typographic grid.
  */
-@import "src/less/typography.less";
-```
-
-That is a shortcut for importing all the parts of the module. You can also import all parts like this.
-
-```less
-/**
- * Import the parts making up the typographic grid.
- */
 @import "src/less/typography-font-families.less";
-@import "src/less/typography-sizes.less";
-@import "src/less/typography-mixins.less";
 @import "src/less/typography-defaults.less";
 ```
 
-These are the files making up the module.
+You have now imported the grid, the next step is to activate it.
 
-Lets review these files, one by one, and see what can be configured when using them.
+The first thing is to set the base font for the body element.
+
+```less
+// Activate the grid base font
+body {
+    #desinax-hgrid.font(@fontSizeBody);
+}
+```
+
+Next step is to activate all grid styles to the typographic elements, such as h1-h6, p, code, table and so on. You do this by calling another mixin.
+
+```less
+// Activate grid and affect all typographic elements
+#desinax-hgrid.activateDefaultTypography();
+```
+
+The next step is to optionally enable the to show the grid. This is helpful when one want to check that the typpgraphy actually alines to the grid.
+
+```less
+// Show the grid
+.hgrid .wrap {
+    @gridImage: "../../img/magic-number-@{magicNumber}.png";
+    #desinax-hgrid.showGrid(@gridImage);
+}
+```
+
+Now you are done. An example showing how this can look like is in `htdocs/typographic_default.html`. The style used for the example is in `src/less/test_typography_default.less`.
+
+This is how the example looks like.
+
+![Defaults](doc/img/defaults.png)
+
+
+
+Activate the grid
+-------------------------------
+
+
+// Magic number and base fontsize
+@magicNumber:  24px;  // 22px
+@fontSizeBody: 16px;
+
+
+
+Show the grid
+-------------------------------
+
+// Magic number and base fontsize
+@magicNumber:  24px;  // 22px
+@fontSizeBody: 16px;
+
+
+
+Show the grid
+-------------------------------
+
+The first thing you can do is to activate the grid.
+
+```less
+// Show the grid
+.hgrid .wrap {
+    @gridImage: "../../img/magic-number-@{magicNumber}.png";
+    #desinax-hgrid.showGrid(@gridImage);
+}
+```
+
+There are two grid images avail grid images available resides in [`src/img`](src/img). There is one image for a 22px grid and one for a 24px grid. The size of the grid is also called a _magic number_.
 
 
 
