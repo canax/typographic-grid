@@ -3,6 +3,13 @@ Revision History
 
 
 
+v1.1.* (2018-11-12)
+------------------------
+
+* typographyCodeElements was not using the setting fontFamilyCode.
+
+
+
 v1.1.1 (2018-11-07)
 ------------------------
 
